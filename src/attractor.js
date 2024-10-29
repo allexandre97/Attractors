@@ -25,23 +25,12 @@ class Attractor {
         let a     = params.a;
         let speed = params.speed;
 
-        let VX = speed * (sin(particle.y) - a * particle.x);
-        let VY = speed * (sin(particle.z) - a * particle.y);
-        let VZ = speed * (sin(particle.x) - a * particle.z);
+        let VX = speed * (sin(particle.y) - a * particle.x);// + random(-0.2, 0.2);
+        let VY = speed * (sin(particle.z) - a * particle.y);// + random(-0.2, 0.2);
+        let VZ = speed * (sin(particle.x) - a * particle.z);// + random(-0.2, 0.2);
 
         this.ForwardEuler(particle, {x: VX, y: VY, z: VZ});
 
-        // let X = particle.x + this.delta_t * VX;
-        // let Y = particle.y + this.delta_t * VY;
-        // let Z = particle.z + this.delta_t * VZ;
-
-        // return {x: X,
-        //         y: Y,
-        //         z: Z,
-
-        //         vx: VX,
-        //         vy: VY,
-        //         vz: VZ}
     }
 
     Lorenz(particle, params){

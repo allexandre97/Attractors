@@ -16,7 +16,7 @@ class Particle{
 
         this.radius = random(0.1, 0.15);
 
-        this.colors = ['royalblue', 'olive', 'firebrick'];
+        this.colors = ['royalblue', 'peru', 'firebrick'];
 
         this.palette  = this.colors.map(c => c.toString());
         this.gradient = chroma.scale(this.palette).mode('lab');
@@ -25,16 +25,9 @@ class Particle{
         
     }
 
-    hsv2rgb(h,s,v){                              
-    let f = (n,k=(n+h/60)%6) => v - v*s*Math.max( Math.min(k,4-k,1), 0);     
-    return [f(5)*255,f(3)*255,f(1)*255];       
-    }
-
     MapColor(value, min, max){
 
         let mixture  = map(value, min, max, 0, 1);
-        // console.log(gradient(mixture));
-
         return this.gradient(mixture).hex();
 
     }
@@ -43,7 +36,7 @@ class Particle{
         return Math.sqrt(this.u*this.u + this.v*this.v + this.w*this.w);
     }
 
-    update(p, s){
+    update(){
 
         this.color = this.MapColor(this.V3D(), 0.1, 3.0);
         this.time += this.h;
