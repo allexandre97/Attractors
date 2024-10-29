@@ -52,7 +52,6 @@ function draw() {
 
   SYSTEM.UpdateParticles({speed: 2, a: 0.20816});
 
-
   for (const part of PARTICLES){
     part.display();
   }
