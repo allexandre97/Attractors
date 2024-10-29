@@ -33,16 +33,16 @@ class Particle{
 
     update(p, s){
 
-        let tmp = Thomas([this.x, this.y, this.z], p, s);
-        //let tmp = Thomas([this.x, this.y, this.z]);
+        // let tmp = Thomas([this.x, this.y, this.z], p, s);
+        // //let tmp = Thomas([this.x, this.y, this.z]);
 
-        this.u = tmp.vx;
-        this.v = tmp.vy;
-        this.w = tmp.vz;
+        // this.u = tmp.vx;
+        // this.v = tmp.vy;
+        // this.w = tmp.vz;
         
-        this.x = tmp.x;
-        this.y = tmp.y;
-        this.z = tmp.z;
+        // this.x = tmp.x;
+        // this.y = tmp.y;
+        // this.z = tmp.z;
 
         this.hue   = map(this.V3D(), 0, 0.005*L/this.h, 270, 360);
         this.color = this.hsv2rgb(this.hue, 0.85, 0.75);

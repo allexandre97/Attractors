@@ -18,6 +18,7 @@ const L = 20;
 // Constants and variables for the particles in the system
 const NPARTICLES = 1000;
 let    PARTICLES = []
+let       SYSTEM;
 
 const DT = 0.075 // Integration timestep
 
@@ -34,24 +35,26 @@ function setup() {
                                 0, DT);
   }
 
+  SYSTEM = new Attractor(PARTICLES, DT, "Thomas");
+
   CAMERA = createEasyCam(this._renderer, {distance: 100, center: [0, 0, 0]});
   perspective(120, WIDTH/HEIGHT, 0.1, 500);
   CAMERA.setDistanceMin(0.1);
   CAMERA.setDistanceMax(500);
   
-  noLoop();
+  // noLoop();
 
 }
 
 function draw() {
 
   background(220);
+
+  SYSTEM.UpdateParticles({speed: 2, a: 0.20816});
+
+
   for (const part of PARTICLES){
-    // console.log(part);
     part.display();
   }
-  // console.log(CAMERA);
-  // translate(0, 0, 0);
-  // sphere(2, 20, 20);
 
 }
